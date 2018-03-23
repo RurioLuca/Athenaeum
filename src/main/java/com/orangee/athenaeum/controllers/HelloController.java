@@ -19,6 +19,8 @@ public class HelloController {
         return "index";
     }
 
+
+
     @RequestMapping(value="/hello", method = RequestMethod.GET)
     public String helloFromString() {
         return "index";

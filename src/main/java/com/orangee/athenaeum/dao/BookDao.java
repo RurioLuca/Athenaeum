@@ -46,8 +46,8 @@ public class BookDao {
 
     public Book findById(long bookId) {
         List<Book> bookList = (List<Book>) entityManager.createQuery(
-                "from Book book where book.book_id = :bookId")
-                .setParameter("book_id", bookId)
+                "from Book book where book.libro_id = :bookId")
+                .setParameter("bookId", bookId)
                 .getResultList();
         if (bookList.isEmpty()) {
             return null;

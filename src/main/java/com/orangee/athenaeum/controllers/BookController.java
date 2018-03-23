@@ -27,6 +27,7 @@ public class BookController {
     public List<Book> getAllBooks() {
         List<Book> books = bookDao.getAll();
 
+
         return books;
     }
 
@@ -47,13 +48,19 @@ public class BookController {
             book.setData_pubblicazione(simpleDateFormat.parse(data_pubblicazione));
         } catch (ParseException e) {
             e.printStackTrace();
+            Map<String, String> response = new HashMap<>();
+            response.put("code", "failed");
+
+            return response;
         }
         book.setNome(nome);
+
         bookDao.create(book);
 
 
         Map<String, String> response = new HashMap<>();
         response.put("code", "success");
+
         return response;
 
     }
