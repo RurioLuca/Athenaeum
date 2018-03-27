@@ -37,7 +37,7 @@
                 <a class="nav-link" href="#"><spring:message code="homepage"/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="/findbook">Cerca Libro</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>
