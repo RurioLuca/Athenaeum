@@ -59,9 +59,9 @@
     <br/>
     <div class="row">
 
-        <form method="post" action="/inserisciLibro">
 
             <table class="table">
+        <form method="post" action="/inserisciLibro">
             <tr>
                 <th>
                 Nome libro:
@@ -107,8 +107,8 @@
                   <button class="btn btn-warning" type="button" onclick="deleteLibro('${book_id}')">CANCELLA</button>
                 </td>
             </tr>
-        </table>
         </form>
+        </table>
     </div>
 
     </div>
@@ -124,6 +124,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/find_book.js"></script>
 
 </body>
 

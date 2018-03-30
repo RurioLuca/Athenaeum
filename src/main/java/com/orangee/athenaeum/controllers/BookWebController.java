@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -59,5 +61,29 @@ public class BookWebController {
     }
 
 
-    /*  listner for url /inserisciLibro and implementation */
+    @RequestMapping(value = "/inserisciLibro", method = RequestMethod.POST)
+    public String insertBook(
+            @RequestParam("nome_libro") String nome,
+            @RequestParam("autore") String autore,
+            @RequestParam("date") String data_pubblicazione,
+            @RequestParam("anno") int anno
+    ) {
+
+        Book book = new Book();
+        book.setAnno(anno);
+        book.setAutore(autore);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            book.setData_pubblicazione(simpleDateFormat.parse(data_pubblicazione));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        book.setNome(nome);
+
+        bookDao.create(book);
+
+        return "index";
+    }
+
+
 }
