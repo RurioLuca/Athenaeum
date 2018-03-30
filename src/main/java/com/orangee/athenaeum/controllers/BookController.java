@@ -71,12 +71,33 @@ public class BookController {
             @PathVariable("book_id") long book_id
     ) {
 
+        Map<String, String> response = new HashMap<>();
         Book book = bookDao.findById(book_id);
 
+        if (book == null) {
+            response.put("code", "failed");
+            response.put("message", "il libro che stai cancellando non esiste");
+            return response;
+        }
+
+        String name = book.getNome();
         bookDao.delete(book);
+
+        response.put("code", "success");
+        response.put("message", "il libro " + name + " è stato cancellato correttamente");
+        return response;
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/books/sample", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map sampleBook(
+
+    ) {
 
         Map<String, String> response = new HashMap<>();
         response.put("code", "success");
+        response.put("message", "tutto ok");
         return response;
 
     }

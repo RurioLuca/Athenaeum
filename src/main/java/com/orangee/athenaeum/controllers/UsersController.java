@@ -68,6 +68,7 @@ public class UsersController {
         usersDao.delete(users);
 
         response.put("code", "success");
+        response.put("message", "utente eliminato");
         return response;
 
     }

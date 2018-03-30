@@ -18,28 +18,6 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-    <script>
-
-        function deleteLibro(libro_id){
-           /* create file findBook.js and move this function inside it */
-
-            console.log("libro id: "+libro_id);
-
-            if(libro_id==null || libro_id==""){
-                alert("ricerca prima un libro");
-                return;
-            }
-
-            // your code here
-            // delete book by id
-            // use AJAX
-            // display result
-
-
-
-        }
-
-    </script>
 
 </head>
 <body>
@@ -125,7 +103,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/find_book.js"></script>
+<script src="js/findBook.js"></script>
 
 </body>
 

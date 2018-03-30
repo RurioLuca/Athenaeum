@@ -15,7 +15,11 @@ function deleteLibro(libro_id) {
         url: '/books/delete/' + libro_id,
         type: 'DELETE',
         success: function (result) {
-            alert(result.code);
+
+            alert(result.message);
+            console.log(result.message);
+            console.log(result["message"]);
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
