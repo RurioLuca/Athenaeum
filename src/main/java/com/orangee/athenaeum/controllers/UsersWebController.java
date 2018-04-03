@@ -3,11 +3,13 @@ package com.orangee.athenaeum.controllers;
 import com.orangee.athenaeum.dao.UsersDao;
 import com.orangee.athenaeum.form.UserForm;
 import com.orangee.athenaeum.models.Users;
+import com.orangee.athenaeum.utils.CodeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +39,7 @@ public class UsersWebController {
                 if (users.getNome().toLowerCase().equals(searchField) || users.getCognome().toLowerCase().equals(searchField)) {
                     modelAndView.addObject("search_field", searchField);
                     UserForm userForm = new UserForm();
+                    userForm.setUser_id(users.getUtente_id());
                     userForm.setName(users.getNome());
                     userForm.setSurname(users.getCognome());
                     userForm.setRegistrationNumber(users.getMatricola());
@@ -48,7 +51,7 @@ public class UsersWebController {
                 }
 
             }
-            //disable matricola input field (only read).
+
         }
 
         modelAndView.addObject("message", message);
@@ -58,13 +61,36 @@ public class UsersWebController {
 
     @RequestMapping(value = "/updateUsers", method = RequestMethod.POST)
     public ModelAndView updateUsers(@ModelAttribute(value = "user_form") UserForm userForm) {
-        ModelAndView modelAndView = new ModelAndView();
-        // TO DO
-        // implements update in db Users obj
+        ModelAndView modelAndView = new ModelAndView("redirect:/mainUsers?search_field=" + userForm.getName());
+
+        Users user = usersDao.findById(userForm.getUser_id());
+
+        user.setMatricola(userForm.getRegistrationNumber());
+        user.setNome(userForm.getName());
+        user.setCognome(userForm.getSurname());
+        usersDao.update(user);
+
+
         return modelAndView;
     }
 
-    // "/addUser" GET serve page add user
+    @RequestMapping(value = "/addUser", method = RequestMethod.GET)
+    public String addUser() {
+        return "add_user";
+    }
 
-    // "/addUser" POST implementare servizio  ADD USER (form html standard)
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public String addUserForm(@RequestParam("name") String nome,
+                              @RequestParam("surname") String cognome) {
+
+        Users user = new Users();
+        user.setCognome(cognome);
+        user.setNome(nome);
+        user.setMatricola(CodeUtils.randomGenerationCode(15));
+
+
+        usersDao.create(user);
+        return "redirect:/mainUsers?search_field=" + nome;
+    }
 }

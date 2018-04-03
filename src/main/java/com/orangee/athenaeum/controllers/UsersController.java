@@ -52,10 +52,8 @@ public class UsersController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/client/delete/{users_id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map deleteBook(
-            @PathVariable("user_id") long user_id
-    ) {
+    @RequestMapping(value = "/users/delete/{users_id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map deleteUser(@PathVariable("users_id") long user_id) {
         Map<String, String> response = new HashMap<>();
 
         Users users = usersDao.findById(user_id);
@@ -66,10 +64,8 @@ public class UsersController {
         }
 
         usersDao.delete(users);
-
         response.put("code", "success");
         response.put("message", "utente eliminato");
         return response;
-
     }
 }

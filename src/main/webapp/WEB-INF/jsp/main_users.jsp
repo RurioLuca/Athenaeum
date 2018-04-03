@@ -38,6 +38,7 @@
             <c:when test="${not empty is_exist_user}">
                 <table class="table">
                     <form:form method="post" action="/updateUsers" modelAttribute="user_form">
+                        <form:input type="text" path="user_id" cssStyle="visibility: hidden;"/>
                         <tr>
                             <th>
                                 Nome:
@@ -60,10 +61,9 @@
                                 Matricola:
                             </th>
                             <td>
-                                <form:input type="text" path="registrationNumber"/>
+                                <form:input type="text" path="registrationNumber" readonly="true" />
                             </td>
                         </tr>
-
 
                         <tr>
                             <th>
@@ -97,5 +97,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/main_users.js"></script>
 </body>
 </html>

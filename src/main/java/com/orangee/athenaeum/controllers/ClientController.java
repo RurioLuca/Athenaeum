@@ -83,6 +83,5 @@ public class ClientController {
 
         response.put("code", "success");
         return response;
-
     }
 }
