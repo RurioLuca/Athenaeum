@@ -12,7 +12,7 @@
     <title><spring:message code="title"/></title>
 
 
-
+    <link rel="shortcut icon" type="image/x-icon" href="/img/libro.png" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
@@ -41,6 +41,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/mainUsers">Cerca utente</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/mainBorrow">Gestisci prestiti</a>
             </li>
         </ul>
     </div>

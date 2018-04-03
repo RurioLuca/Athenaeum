@@ -49,9 +49,7 @@ public class UsersWebController {
                     modelAndView.addObject("user_id", users.getUtente_id());
                     break;
                 }
-
             }
-
         }
 
         modelAndView.addObject("message", message);

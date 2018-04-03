@@ -15,15 +15,15 @@ public class Borrow implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long prestito_id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "libro_id")
     private Book book;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id")
     private Client client;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "utente_id")
     private Users user;
 
@@ -91,4 +91,7 @@ public class Borrow implements Serializable {
     public void setStato_prestito(String stato_prestito) {
         this.stato_prestito = stato_prestito;
     }
+
+
+
 }
