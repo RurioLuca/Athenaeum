@@ -8,7 +8,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "utente")
-public class Users implements Serializable{
+public class Users implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long utente_id;
@@ -18,6 +19,8 @@ public class Users implements Serializable{
     private String cognome;
     @Column
     private String matricola;
+    @Column
+    private String password;
 
 
     public long getUtente_id() {
@@ -50,5 +53,13 @@ public class Users implements Serializable{
 
     public void setMatricola(String matricola) {
         this.matricola = matricola;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

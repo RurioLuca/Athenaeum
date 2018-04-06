@@ -5,11 +5,12 @@ package com.orangee.athenaeum.form;
  */
 public class BorrowForm {
 
+    private long borrow_id;
     private String nomeUtente;
     private String nomeCliente;
     private String nomeLibro;
     private int durataPrestito;
-    private String stato_presito;//data scadenza < data di oggi = "EXIRED" altrimenti stato corrente.
+    private String stato_prestito;//data scadenza < data di oggi = "EXPIRED" altrimenti stato corrente.
     private String data_prestito;
     private String data_scadenza;// data_prestito + durata_presito.
 
@@ -46,12 +47,12 @@ public class BorrowForm {
         this.durataPrestito = durataPrestito;
     }
 
-    public String getStato_presito() {
-        return stato_presito;
+    public String getStato_prestito() {
+        return stato_prestito;
     }
 
-    public void setStato_presito(String stato_presito) {
-        this.stato_presito = stato_presito;
+    public void setStato_prestito(String stato_prestito) {
+        this.stato_prestito = stato_prestito;
     }
 
     public String getData_prestito() {
@@ -70,4 +71,11 @@ public class BorrowForm {
         this.data_scadenza = data_scadenza;
     }
 
+    public long getBorrow_id() {
+        return borrow_id;
+    }
+
+    public void setBorrow_id(long borrow_id) {
+        this.borrow_id = borrow_id;
+    }
 }

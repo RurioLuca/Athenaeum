@@ -18,37 +18,39 @@
 <div class="container">
     <br/>
     <br/>
-    <h1>Inserisci un nuovo utente</h1>
+    <h1>Login</h1>
+    <div class="row">
+        ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+    </div>
     <div class="row">
         <table class="table">
-            <form method="post" action="/addUser">
+            <form method="post" action="/j_spring_security_check">
                 <tr>
                     <th>
-                        Nome:
+                        Matricola :
                     </th>
                     <td>
-                        <input type="text" name="name"/>
+                        <input type="text" name="username"/>
                     </td>
                 </tr>
 
                 <tr>
                     <th>
-                        Cognome:
+                        Password :
                     </th>
                     <td>
-                        <input type="text" name="surname"/>
+                        <input type="password" name="password"/>
                     </td>
                 </tr>
 
 
                 <tr>
                     <td colspan="2" style="text-align: center">
-                        <input type="submit" class="btn btn-primary" value="INSERISCI">
+                        <input type="submit" class="btn btn-success" value="ACCEDI">
                     </td>
                 </tr>
             </form>
-        </table>
-    </div>
+        </table></div>
 </div>
 </body>
 
